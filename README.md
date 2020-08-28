@@ -54,7 +54,7 @@ Rajesh Acharya, Tullia Bruno, Jason J Luke, and Riyue Bao. *nDSPA: An R package 
 
 ## Contact us
 
-Please check our documentation for our contacts, or find us on twitter!
+Please reach out to us by emails, leave us a message here, or find us on twitter!
 
 ## Issues or questions
 
