@@ -13,9 +13,7 @@ There are two ways to start using nDSPA.
     
 2.  Start using nDSPA!
     
-
-
--   To launch the R shiny app locally:
+- To launch the R shiny app locally:
 
 1.  download the software from  `github`  repository:  `git clone git@github.com:riyuebao/nDSPA.git`
     
@@ -26,6 +24,14 @@ There are two ways to start using nDSPA.
 4.  once  `app.R`  is open in  `Rstudio`, click  `Run App`  button on the top right corner
     
 5.  bravo! you are there
+
+- To start using command line functions:
+
+1.  download the software from  `github`  repository:  `git clone git@github.com:riyuebao/nDSPA.git`
+
+2.  navigate into the  `nDSPA`  directory on your computer
+
+3. source `global.R` 
     
 
 > nDSPA is under rapid development. Options might change between versions!
