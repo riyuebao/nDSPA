@@ -1,11 +1,15 @@
 # nDSPA
  *An R package for quality metrics, preprocessing, visualization, and differential testing analysis of spatial omics data*
 
+Tutorial: https://github.com/riyuebao/nDSPA/wiki/Tutorial
 
+Documentation: https://github.com/riyuebao/nDSPA/wiki/Documentation (under construction)
+
+Short demo for the Rshiny app: https://bit.ly/3jpQh3e
 
 ## Installation
 
-There are two ways to start using nDSPA.
+To start using nDSPA.
 
 -   To launch the R shiny app on website:
 
