@@ -57,6 +57,12 @@ To start using nDSPA.
 
 UPMC Hillman Cancer Center, supported in part by NCI through the UPMC Hillman Cancer Center CCSG award (P30CA047904).”
 
+## Acknowledgment
+
+We acknowledge contribution from our colleagues and friends in pushing nDSPA to fuition:
+
+* We thank Shelley Reynolds and Ernest M Meyer (UPMC Flow Cytometry Core) for processing the samples and producing the data that were used to generate the syntethic datasets provided in nDSPA.
+* We thank Aditi Kulkarni (UPMC Hillman Cancer Center), Kyle Hernandez, Tzuni Garcia and Lei Huang (University of Chicago) for helping test and verify the software.
 
 ## Cite us
 
