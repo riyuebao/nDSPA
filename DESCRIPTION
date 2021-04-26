@@ -1,0 +1,31 @@
+Package: nDSPA
+Title: nDSPA, a package for analyzing spatial transcriptomics data
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Rajesh",
+           family = "Acharya",
+           role = c("aut", "cre"),
+           email = "acharyar2@upmc.edu"),
+    person(given = "Riyue",
+           family = "Bao",
+           role = c("aut")))
+Description: nDSPA is a package for importing, analyzing and manipulating spatial transciptomics data, most notably nanostring DSP.
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    readr,
+    tidyr,
+    readxl,
+    tibble
+VignetteBuilder: knitr
+biocViews:
+Imports: 
+    dplyr,
+    SummarizedExperiment,
+    magrittr,
+    rlang,
+    utils
+RoxygenNote: 7.1.1

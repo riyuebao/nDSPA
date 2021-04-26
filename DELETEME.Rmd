@@ -1,0 +1,68 @@
+---
+title: "Test Functions"
+author: "Rajesh Acharya"
+date: "8/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(readr)
+
+
+```
+
+
+
+```{r cut annotations of import data}
+R1541T_RAW <- read_delim("C:/Users/acharyar2/Box/Internal_Project_Data/20200124_Spacial_Transcriptomics_Proj/data/test/testdata/1541T_RAW.txt", 
+    "\t", escape_double = FALSE, trim_ws = TRUE)
+
+#Names in column `Segment displayed name`
+#Import with top row as names
+#in sdn row cut up to the name "#Factor"
+R1541T_RAW %>% slice(1:which(R1541T_RAW$`Segment displayed name` == "#Factor"))
+
+R1541T_RAW %>% slice(1:which(R1541T_RAW$`Segment displayed name` == "#Probe Group")-1) %>% tibble::column_to_rownames(var="Segment displayed name") %>% select(4:dim(.)[2]) %>% t() %>% as.data.frame() %>% mutate(ID=gsub(" ", "",paste(`Scan name`,`ROI (label)`,`Segment tags`,sep = "|")) )
+
+#final raw anno pipe
+anno <- R1541T_RAW %>% dplyr::slice(1:which(R1541T_RAW$`Segment displayed name` == "#Probe Group")-1) %>% tibble::column_to_rownames(var="Segment displayed name") %>% dplyr::select(4:dim(.)[2]) %>% as.data.frame(stringsAsFactors = FALSE) %>% t()  %>% as.data.frame(drop=FALSE) %>% dplyr::mutate(Original_ID = rownames(.)) %>% dplyr::mutate(ID=gsub(" ", "",paste(`Scan name`,`ROI (label)`,`Segment tags`,sep = "|")) )
+
+#Probes
+probes <- R1541T_RAW %>% 
+  dplyr::slice(-(1:which(R1541T_RAW$`Segment displayed name` == "#Probe Group")-1)) %>% 
+  dplyr::select((1:4)) %>% 
+  `colnames<-`(.[1,]) %>% 
+  dplyr::slice(-1)
+
+#Imported reads_matrix
+
+val <- R1541T_RAW %>% 
+  dplyr::slice(-(1:which(R1541T_RAW$`Segment displayed name` == "#Probe Group"))) %>% 
+  select(-(1:4)) %>% 
+  `colnames<-`(anno$ID) %>% 
+  apply(2,to.numeric) %>% 
+  data.matrix() %>% 
+  `rownames<-`(probes$`ProbeName (display name)`)
+
+
+
+
+#Try with .data
+
+anno.data <- R1541T_RAW %>% 
+  dplyr::slice(1:which(R1541T_RAW$`Segment displayed name` == "#Probe Group")-1) %>% 
+  tibble::column_to_rownames(var="Segment displayed name") %>% 
+  dplyr::select(4:dim(.data)[2]) %>% as.data.frame(stringsAsFactors = FALSE) %>% 
+  t()  %>% as.data.frame(drop=FALSE) %>% 
+  dplyr::mutate(Original_ID = rownames(.)) %>% 
+  dplyr::mutate(ID=gsub(" ", "",paste(.data$`Scan name`,.data$`ROI (label)`,.data$`Segment tags`,sep = "|")) )
+```
+
+
+
+```{r cut data matrix of import data}
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
